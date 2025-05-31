@@ -40,6 +40,15 @@ h1,
 .shadow {
   /* -webkit-text-stroke: 1px white; */
   text-shadow: 2px 2px 2px lightskyblue;
+  --tw-shadow: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+.image-div img {
+  border: 1px solid skyblue;
 }
 
 body {

@@ -4,10 +4,30 @@ import React, { useState } from "react";
 import Image from "next/image";
 import toast from "react-hot-toast";
 import "yet-another-react-lightbox/styles.css";
+import Lightbox from "yet-another-react-lightbox";
 
 export default function Home() {
   const [showRSVP, setShowRSVP] = useState(false);
 
+  //FOR GALLERY
+  const IMAGES = Array.from({ length: 25 }, (_, i) => ({
+    // src: `/images/gallery/photo-${i + 1}.jpg`,
+    src: `/images/gallery/${i + 1}.jpg`,
+  }));
+
+  const ITEMS_PER_PAGE = 3;
+
+  const [page, setPage] = useState(1);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const paginatedImages = IMAGES.slice(
+    (page - 1) * ITEMS_PER_PAGE,
+    page * ITEMS_PER_PAGE
+  );
+
+  const totalPages = Math.ceil(IMAGES.length / ITEMS_PER_PAGE);
+
+  //FOR RSVP FORM
   function RSVPForm({ onClose }: { onClose: () => void }) {
     const [formData, setFormData] = useState({
       name: "",
@@ -220,7 +240,7 @@ export default function Home() {
 
       {/* Gallery */}
       <section className="mb-12">
-        <h2 className="text-3xl font-semibold mb-6">Gallery</h2>
+        {/* <h2 className="text-3xl font-semibold mb-6">Gallery</h2>
         <div className="grid grid-cols-3 gap-4">
           {[
             "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=400&q=60",
@@ -235,6 +255,52 @@ export default function Home() {
               loading="lazy"
             />
           ))}
+        </div> */}
+        <div className="py-10">
+          <h2 className="text-2xl font-bold mb-4 text-center">Gallery</h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 px-4">
+            {paginatedImages.map((img, idx) => (
+              <div
+                key={idx}
+                onClick={() => setOpenIndex((page - 1) * ITEMS_PER_PAGE + idx)}
+                className="cursor-pointer image-div"
+              >
+                <Image
+                  src={img.src}
+                  alt={`Gallery ${idx}`}
+                  width={400}
+                  height={300}
+                  className="rounded shadow object-cover"
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* Pagination */}
+          <div className="flex justify-center mt-6 gap-2">
+            {Array.from({ length: totalPages }, (_, i) => (
+              <button
+                key={i}
+                onClick={() => setPage(i + 1)}
+                className={`px-3 py-1 rounded ${
+                  page === i + 1 ? "bg-black text-white" : "bg-gray-200"
+                }`}
+              >
+                {i + 1}
+              </button>
+            ))}
+          </div>
+
+          {/* Lightbox */}
+          {openIndex !== null && (
+            <Lightbox
+              open
+              index={openIndex}
+              close={() => setOpenIndex(null)}
+              slides={IMAGES}
+            />
+          )}
         </div>
       </section>
 
