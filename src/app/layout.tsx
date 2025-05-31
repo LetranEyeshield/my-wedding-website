@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Dancing_Script, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "react-hot-toast";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,11 +39,16 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap"
           precedence="default"
         />
+        <style>
+          @import
+          url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+        </style>
       </head>
       <body
         className={`${geistSans.variable} ${dancingScript.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        <Toaster position="top-right" />
       </body>
     </html>
   );
