@@ -1,103 +1,146 @@
+"use client"; // This is required in Next.js app router for client-side interactivity
+
+import React, { useState } from "react";
 import Image from "next/image";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [showRSVP, setShowRSVP] = useState(false);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+  return (
+    <main className="max-w-7xl mx-auto p-6 font-sans">
+      {/* Header */}
+      <header
+        id="header"
+        className="text-center mx-auto flex flex-col justify-center fixed center-fixed"
+      >
+        <h1 className="text-8xl font-bold">Rolan and Kate's Wedding</h1>
+        <p className="text-xl text-gray-600">Join us on September 15, 2025</p>
+      </header>
+
+      {/* Banner */}
+      <section id="banner" className="mx-auto flex justify-center">
+        <img
+          className="w-6xl mx-auto"
+          src="/images/banner.jpg"
+          alt="Rolan and Kate's Photo"
+        />
+      </section>
+
+      {/* Our Story */}
+      <section className="mb-12">
+        <h2 className="text-3xl font-semibold mb-4">Our Story</h2>
+        <p>
+          We met in college, and from that moment on, our journey has been full
+          of love, laughter, and adventure. We’re excited to share our special
+          day with you!
+        </p>
+      </section>
+
+      {/* Event Details */}
+      <section className="mb-12">
+        <h2 className="text-3xl font-semibold mb-4">Event Details</h2>
+        <ul className="list-disc list-inside space-y-1">
+          <li>
+            <strong>Date:</strong> July 15, 2025
+          </li>
+          <li>
+            <strong>Time:</strong> 4:00 PM
+          </li>
+          <li>
+            <strong>Venue:</strong> Sunny Gardens, 123 Wedding Lane
+          </li>
+        </ul>
+      </section>
+
+      {/* Gallery */}
+      <section className="mb-12">
+        <h2 className="text-3xl font-semibold mb-6">Gallery</h2>
+        <div className="grid grid-cols-3 gap-4">
+          {[
+            "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=400&q=60",
+            "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=400&q=60",
+            "https://images.unsplash.com/photo-1504198453319-5ce911bafcde?auto=format&fit=crop&w=400&q=60",
+          ].map((src, i) => (
+            <img
+              key={i}
+              src={src}
+              alt={`Wedding photo ${i + 1}`}
+              className="w-full h-32 object-cover rounded-lg shadow-md"
+              loading="lazy"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          ))}
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+      </section>
+
+      {/* RSVP Button */}
+      <div className="text-center mb-12">
+        <button
+          onClick={() => setShowRSVP(true)}
+          className="bg-pink-600 text-white px-6 py-3 rounded-full text-lg hover:bg-pink-700 transition"
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          RSVP Now
+        </button>
+      </div>
+
+      {/* RSVP Modal */}
+      {showRSVP && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+          aria-modal="true"
+          role="dialog"
+          aria-labelledby="rsvp-title"
         >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+          <div className="bg-white rounded-lg shadow-lg max-w-md w-full p-6 relative">
+            <h3 id="rsvp-title" className="text-2xl font-bold mb-4">
+              RSVP
+            </h3>
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                alert("Thanks for your RSVP!");
+                setShowRSVP(false);
+              }}
+            >
+              <label className="block mb-3">
+                Name:
+                <input
+                  type="text"
+                  name="name"
+                  required
+                  className="w-full border border-gray-300 rounded px-3 py-2 mt-1"
+                />
+              </label>
+              <label className="block mb-3">
+                Will you attend?
+                <select
+                  name="attending"
+                  required
+                  className="w-full border border-gray-300 rounded px-3 py-2 mt-1"
+                >
+                  <option value="">Select an option</option>
+                  <option value="yes">Yes, I'll be there</option>
+                  <option value="no">Sorry, can't make it</option>
+                </select>
+              </label>
+              <div className="flex justify-end space-x-4">
+                <button
+                  type="button"
+                  onClick={() => setShowRSVP(false)}
+                  className="px-4 py-2 rounded border border-gray-300 hover:bg-gray-100"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="bg-pink-600 text-white px-4 py-2 rounded hover:bg-pink-700"
+                >
+                  Submit
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+    </main>
   );
 }

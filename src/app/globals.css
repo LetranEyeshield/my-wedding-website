@@ -1,4 +1,7 @@
 @import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --background: #ffffff;
@@ -17,6 +20,40 @@
     --background: #0a0a0a;
     --foreground: #ededed;
   }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+.cursive {
+  font-family: "Great Vibes", cursive;
+}
+
+.center-fixed {
+  left: 0;
+  right: 0;
+}
+
+#header {
+  background-color: rgba(173, 216, 230, 0.5);
+  width: 80vw;
+  margin: 10px auto;
+  text-align: center;
+}
+
+#header h1 {
+  padding: 35px 0 25px;
+  border-radius: 20px;
+}
+
+#header p {
+  font-size: 1.8rem;
+  margin: 5px 0 0 0;
 }
 
 body {
