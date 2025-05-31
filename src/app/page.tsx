@@ -204,7 +204,10 @@ export default function Home() {
       </header>
 
       {/* Banner */}
-      <section id="banner" className="mx-auto flex justify-center">
+      <section id="banner" className="mx-auto flex flex-column justify-center">
+        <h2 className="dancing-script shadow">
+          "Two Hearts, One Soul, Endless Love"
+        </h2>
         <img
           className="w-screen mx-auto"
           src="/images/banner.jpg"

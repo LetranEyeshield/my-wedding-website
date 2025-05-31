@@ -37,6 +37,13 @@ h1,
   font-style: normal;
 }
 
+.dancing-script {
+  font-family: "Dancing Script", cursive;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
 .shadow {
   /* -webkit-text-stroke: 1px white; */
   text-shadow: 2px 2px 2px lightskyblue;
@@ -49,6 +56,20 @@ button {
 
 .image-div img {
   border: 1px solid skyblue;
+}
+
+#banner {
+  position: relative;
+}
+
+#banner h2 {
+  position: absolute;
+  top: 75px;
+  margin: 0 auto;
+  font-size: 3rem;
+  background: rgba(255, 182, 193, 0.5);
+  padding: 15px 30px;
+  border-radius: 25px;
 }
 
 body {
