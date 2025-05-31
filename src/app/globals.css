@@ -28,7 +28,9 @@ h1,
 }
 
 #header {
-  background-color: rgba(173, 216, 230, 0.5);
+  /* background-color: #f9f7f4; */
+  background: rgba(199, 225, 247, 0.4);
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .great-vibes {
@@ -46,7 +48,13 @@ h1,
 
 .shadow {
   /* -webkit-text-stroke: 1px white; */
-  text-shadow: 2px 2px 2px lightskyblue;
+  text-shadow: 2px 2px 2px white;
+  --tw-shadow: none;
+}
+
+.shadow-2 {
+  /* -webkit-text-stroke: 1px white; */
+  text-shadow: 2px 2px 2px black;
   --tw-shadow: none;
 }
 
@@ -63,13 +71,36 @@ button {
 }
 
 #banner h2 {
+  color: #ededed;
   position: absolute;
-  top: 75px;
+  top: 50px;
   margin: 0 auto;
   font-size: 3rem;
-  background: rgba(255, 182, 193, 0.5);
+  background: rgba(235, 126, 36, 0.5);
   padding: 15px 30px;
   border-radius: 25px;
+}
+
+#story {
+  /* background-color: rgba(173, 216, 230, 0.5); */
+  background: rgba(199, 225, 247, 0.4);
+}
+
+#story p {
+  width: 80%;
+}
+
+#details {
+  background: #f3b05c;
+}
+
+iframe {
+  height: 250px;
+  margin: 20px 0 0 15px;
+}
+
+#gallery {
+  background: rgba(199, 225, 247, 0.4);
 }
 
 body {
