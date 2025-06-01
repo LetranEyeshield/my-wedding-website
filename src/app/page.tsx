@@ -6,7 +6,8 @@ import toast from "react-hot-toast";
 import "yet-another-react-lightbox/styles.css";
 import Lightbox from "yet-another-react-lightbox";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
-import "yet-another-react-lightbox/plugins/zoom.css";
+// import "yet-another-react-lightbox/plugins/zoom.css";
+import "yet-another-react-lightbox/styles.css"; // ✅ keep this only
 
 export default function Home() {
   const [showRSVP, setShowRSVP] = useState(false);
