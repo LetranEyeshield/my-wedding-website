@@ -204,8 +204,8 @@ export default function Home() {
       </header>
 
       {/* Banner */}
-      <section id="banner" className="mx-auto flex flex-column justify-center">
-        <h2 className="dancing-script shadow-2">
+      <section id="banner" className="mx-auto flex flex-col justify-center">
+        <h2 className="dancing-script shadow-2 text-center">
           "Two Hearts, One Soul, Endless Love"
         </h2>
         <img
@@ -273,7 +273,10 @@ export default function Home() {
         <div className="">
           <h2 className="text-5xl font-semibold mb-12">Gallery</h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 px-4">
+          <div
+            id="image-div"
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 px-4"
+          >
             {paginatedImages.map((img, idx) => (
               <div
                 key={idx}
@@ -317,40 +320,49 @@ export default function Home() {
           )}
         </div>
       </section>
-
-      {/* RSVP Button */}
-      <div className="text-center mb-12">
-        <button
-          onClick={() => setShowRSVP(true)}
-          className="bg-blue-300 text-black px-6 py-3 rounded-full text-lg hover:bg-blue-500 transition"
-        >
-          RSVP Now
-        </button>
-      </div>
-
-      {/* RSVP Modal */}
-      {showRSVP && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
-          aria-modal="true"
-          role="dialog"
-          aria-labelledby="rsvp-title"
-        >
-          <div className="bg-white rounded-lg shadow-lg max-w-md w-full p-6 relative">
-            <h3 id="rsvp-title" className="text-2xl font-bold mb-4">
-              RSVP
-            </h3>
-            <button
-              onClick={() => setShowRSVP(true)}
-              className="fixed bottom-8 right-8 bg-blue-300 text-white px-6 py-3 rounded-full shadow-lg hover:bg-pink-600"
-            >
-              RSVP
-            </button>
-
-            {showRSVP && <RSVPForm onClose={() => setShowRSVP(false)} />}
-          </div>
+      {/* RSVP SECTION */}
+      <footer id="footer" className="py-10">
+        {/* RSVP Button */}
+        <div className="text-center">
+          <button
+            onClick={() => setShowRSVP(true)}
+            className="bg-blue-300 text-black px-6 py-3 rounded-full text-lg hover:bg-blue-500 transition"
+          >
+            RSVP Now
+          </button>
         </div>
-      )}
+
+        {/* RSVP Modal */}
+        {showRSVP && (
+          <div
+            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+            aria-modal="true"
+            role="dialog"
+            aria-labelledby="rsvp-title"
+          >
+            <div className="bg-white rounded-lg shadow-lg max-w-md w-full p-6 relative">
+              <h3 id="rsvp-title" className="text-2xl font-bold mb-4">
+                RSVP
+              </h3>
+              <button
+                onClick={() => setShowRSVP(true)}
+                className="fixed bottom-8 right-8 bg-blue-300 text-white px-6 py-3 rounded-full shadow-lg hover:bg-pink-600"
+              >
+                RSVP
+              </button>
+
+              {showRSVP && <RSVPForm onClose={() => setShowRSVP(false)} />}
+            </div>
+          </div>
+        )}
+        <div id="footer-couples" className="flex flex-col justify-center mt-12">
+          <p className="text-center great-vibes text-4xl">Rolan & Kate</p>
+          <p className="text-center dancing-script text-xl">Monday</p>
+          <p className="text-center dancing-script text-xl">
+            September 15, 2025
+          </p>
+        </div>
+      </footer>
     </main>
   );
 }
