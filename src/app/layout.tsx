@@ -21,8 +21,28 @@ const dancingScript = Dancing_Script({
 
 //USE FOR SEO
 export const metadata: Metadata = {
-  title: "Rolan and Kate's Wedding",
-  description: "Rolan and Kate's Wedding",
+  // title: "Rolan and Kate's Wedding",
+  // description: "Rolan and Kate's Wedding",
+  title: "Rolan & Kate's Wedding",
+  description:
+    "Join us on our special day! RSVP and check out our wedding details here.",
+  keywords: "wedding, Rolan wedding, Kate Wedding RSVP, love, marriage",
+  openGraph: {
+    title: "Rolan & Kate's Wedding",
+    description: "You're invited to our wedding day!",
+    // url: "https://yourdomain.com",
+    url: "https://vercel.com/michael-cris-rosalins-projects/my-wedding-website",
+    siteName: "Wedding of Rolan & Kate",
+    images: [
+      {
+        url: "/banner.jpg", // Make sure this is a real image path
+        width: 1200,
+        height: 630,
+        alt: "Wedding Banner",
+      },
+    ],
+    type: "website",
+  },
 };
 
 export default function RootLayout({
