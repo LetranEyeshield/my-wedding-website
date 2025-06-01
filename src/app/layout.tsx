@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Dancing_Script, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
+import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -58,6 +59,24 @@ export default function RootLayout({
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap"
           precedence="default"
+        />
+        {/* Google Analytics gtag.js script */}
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-EY9GNFWZZ3"
+          strategy="afterInteractive"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-EY9GNFWZZ3');
+            `,
+          }}
         />
       </head>
       <body
