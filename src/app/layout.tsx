@@ -74,7 +74,9 @@ export default function RootLayout({
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-EY9GNFWZZ3');
+              gtag('config', 'G-EY9GNFWZZ3', {
+                page_path: window.location.pathname,
+              });
             `,
           }}
         />
