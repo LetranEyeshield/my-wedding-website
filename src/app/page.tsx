@@ -5,6 +5,8 @@ import Image from "next/image";
 import toast from "react-hot-toast";
 import "yet-another-react-lightbox/styles.css";
 import Lightbox from "yet-another-react-lightbox";
+import Zoom from "yet-another-react-lightbox/plugins/zoom";
+import "yet-another-react-lightbox/plugins/zoom.css";
 
 export default function Home() {
   const [showRSVP, setShowRSVP] = useState(false);
@@ -318,6 +320,8 @@ export default function Home() {
               index={openIndex}
               close={() => setOpenIndex(null)}
               slides={IMAGES}
+              plugins={[Zoom]}
+              zoom={{ maxZoomPixelRatio: 3 }}
             />
           )}
         </div>
