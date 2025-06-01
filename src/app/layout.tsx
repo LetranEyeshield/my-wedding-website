@@ -39,10 +39,6 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap"
           precedence="default"
         />
-        <style>
-          @import
-          url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
-        </style>
       </head>
       <body
         className={`${geistSans.variable} ${dancingScript.variable} ${geistMono.variable} antialiased`}

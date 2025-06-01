@@ -197,7 +197,9 @@ export default function Home() {
         id="header"
         className="text-center mx-auto pt-15 pb-13 flex flex-col justify-center"
       >
-        <h1 className="text-8xl font-bold shadow">Rolan and Kate's Wedding</h1>
+        <h1 className="text-8xl font-bold shadow">
+          Rolan and Kate&apos;s Wedding
+        </h1>
         <p className="great-vibes text-4xl pt-8 font-bold shadow">
           Join us on September 15, 2025
         </p>
